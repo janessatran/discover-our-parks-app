@@ -45,7 +45,7 @@ export const styles = css`
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (max-width: 480px) {
     .image-container > img {
       object-fit: cover;
       width: 100%;

@@ -40,7 +40,6 @@ export const styles = css`
 
   .app-title-section {
     font-family: "Anonymous Pro", sans-serif;
-    font-size: 2rem;
     font-size: 5rem;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -95,21 +94,13 @@ export const styles = css`
     margin-block-end: 0.5rem;
   }
 
-  /** 
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-  */
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    /* CSS */
-  }
-
   /**
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
   */
-  @media (min-width: 481px) and (max-width: 767px) {
+  @media (min-width: 481px) and (max-width: 768px) {
     .content {
-      padding: 2rem;
+      padding: 1rem;
     }
 
     main {
@@ -122,14 +113,28 @@ export const styles = css`
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (max-width: 480px) {
+    .app-title-section {
+      font-size: 4rem;
+    }
+
     .content {
-      padding: 2rem;
+      padding: 1rem;
     }
 
     main {
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  /**
+    ##Device = Really narrow smartphones (like Galaxy Fold)
+    ##Screen = B/w 280px
+  */
+  @media (max-width: 280px) {
+    .app-title-section {
+      font-size: 2rem;
     }
   }
 `;

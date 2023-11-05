@@ -16,6 +16,9 @@ export class PhotoCarousel extends LitElement {
   @property({ type: Number })
   selected = 0;
 
+  @property()
+  name = "TODO";
+
   connectedCallback() {
     super.connectedCallback();
   }
@@ -73,8 +76,10 @@ export class PhotoCarousel extends LitElement {
           <slot name="selected"></slot>
         </div>
         <div class="menu-container">
-          <slot name="count"></slot>
-          <slot name="name"></slot>
+          <slot name="count"
+            >${this.selected + 1} OF ${this.maxSelected + 1}</slot
+          >
+          <slot name="name">${this.name}</slot>
           <div class="buttons">
             <div class="back-arrow" @click=${this.handleBackClick}>
               <span>&#10229;</span>

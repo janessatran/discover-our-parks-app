@@ -24,12 +24,49 @@ export const styles = css`
     min-width: 0; /* allow shrinking below default width */
   }
 
+  /**
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+   */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main:first-child {
+      width: 100%;
+    }
+  }
+
   /** 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px
   */
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    /* CSS */
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main:first-child {
+      width: 100%;
+    }
+  }
+
+  /** 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main:first-child {
+      width: 100%;
+    }
   }
 
   /**
@@ -37,7 +74,6 @@ export const styles = css`
     ##Screen = B/w 481px to 767px
   */
   @media (min-width: 481px) and (max-width: 767px) {
-    /* CSS */
     main {
       display: flex;
       flex-direction: column;
@@ -52,9 +88,7 @@ export const styles = css`
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-  @media (min-width: 320px) and (max-width: 480px) {
-    /* CSS */
-
+  @media (max-width: 480px) {
     main {
       display: flex;
       flex-direction: column;

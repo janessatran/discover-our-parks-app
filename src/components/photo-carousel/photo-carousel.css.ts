@@ -9,6 +9,7 @@ export const styles = css`
     background: gainsboro;
     cursor: pointer;
     width: 100%;
+    font-family: "Inter", sans-serif;
   }
 
   .fit {
@@ -25,9 +26,13 @@ export const styles = css`
   }
 
   .menu-container {
-    height: 2.5rem;
-    padding: 1rem;
+    height: 2rem;
     border-block: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
   }
 
   .photo-container {
@@ -37,8 +42,31 @@ export const styles = css`
 
   .buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: flex-end;
     height: 100%;
+    align-items: center;
+    padding-inline-end: 2rem;
+    padding-block-end: 0.2rem;
+  }
+
+  slot[name="count"] {
+    display: inherit;
+    flex: 1 1 0;
+    padding-inline-start: 1.5rem;
+    font-size: 0.6rem;
+  }
+
+  slot[name="name"] {
+    display: inherit;
+    justify-content: flex-end;
+    padding-inline-end: 1.5rem;
+    margin-inline-end: 1.5rem;
+    border-right: 1px solid black;
+    /* box-sizing: border-box; */
+    height: 100%;
+    align-items: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
   }
 `;
