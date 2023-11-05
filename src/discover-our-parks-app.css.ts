@@ -8,13 +8,12 @@ export const styles = css`
     margin: 0;
     background-color: var(--primary-bg-color);
     position: relative;
-    overflow: scroll;
   }
 
   main {
-    height: 100vh;
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
   }
 
   main > *:nth-child(1) {

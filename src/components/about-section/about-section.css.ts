@@ -8,16 +8,16 @@ export const styles = css`
     --hover-text-color: #00ffaf;
     color: var(--primary-text-color);
     display: block;
-    height: 100%;
     width: 100%;
+    display: flex;
   }
 
   .content {
-    height: 100%;
     background-color: var(--primary-bg-color);
     padding: 3rem;
     display: flex;
     flex-direction: column;
+    flex: 1 1;
   }
 
   .header {
@@ -51,7 +51,7 @@ export const styles = css`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-grow: 1;
+    flex: 0 1;
     gap: 2rem;
   }
 
