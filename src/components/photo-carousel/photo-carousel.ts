@@ -76,10 +76,11 @@ export class PhotoCarousel extends LitElement {
           <slot name="count"></slot>
           <slot name="name"></slot>
           <div class="buttons">
-            <div class="back-arrow" @click=${this.handleBackClick}><<</div>
-            |
+            <div class="back-arrow" @click=${this.handleBackClick}>
+              <span>&#10229;</span>
+            </div>
             <div class="forward-arrow" @click=${this.handleForwardClick}>
-              >>
+              <span>&#10230;</span>
             </div>
           </div>
         </div>
