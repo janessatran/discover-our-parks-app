@@ -1,0 +1,25 @@
+{
+  "name": "discover-our-parks-app",
+  "description": "Webcomponent discover-our-parks-app following open-wc recommendations",
+  "license": "MIT",
+  "author": "discover-our-parks-app",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
+  },
+  "dependencies": {
+    "@adobe/lit-mobx": "^2.2.0",
+    "lit": "^2.0.2",
+    "mobx": "^6.10.2"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@web/dev-server": "^0.1.34",
+    "concurrently": "^5.3.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "customElements": "custom-elements.json"
+}
