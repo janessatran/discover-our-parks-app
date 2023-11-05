@@ -6,7 +6,6 @@ export const styles = css`
     height: 100%;
     display: block;
     margin: 0;
-    background-color: var(--primary-bg-color);
     position: relative;
   }
 
