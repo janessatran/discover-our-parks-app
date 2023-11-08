@@ -12,6 +12,21 @@ import { styles } from "./parks-map.css";
 export class ParksMap extends MobxLitElement {
   static styles = styles;
 
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
+
+  firstUpdated() {
+    const mainAppElement = document.body?.querySelector<HTMLElement>(
+      "discover-our-parks-app"
+    );
+    if (mainAppElement) mainAppElement.style.opacity = "1";
+  }
+
   public render(): TemplateResult {
     return html`
       <div class="main-layout">
