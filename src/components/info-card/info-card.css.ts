@@ -22,6 +22,10 @@ export const styles = css`
     font-color: var(--primary-text-color-dark);
   }
 
+  .nav-container {
+    margin-block: 3rem;
+  }
+
   /** 
     ##Device = Tablets, Ipads (landscape)
     ##Screen = B/w 768px to 1024px

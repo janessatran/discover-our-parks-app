@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@adobe/lit-mobx": "^2.2.0",
+    "@vaadin/router": "^1.7.5",
     "lit": "^2.0.2",
     "mobx": "^6.10.2"
   },

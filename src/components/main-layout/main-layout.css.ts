@@ -9,10 +9,19 @@ export const styles = css`
     position: relative;
   }
 
-  main {
+  .main-container {
     display: flex;
     flex-direction: row;
     min-height: 100vh;
+  }
+
+  .main-container > *:nth-child(1) {
+    flex: 0 0 60%;
+  }
+
+  .main-container > *:nth-child(2) {
+    flex-grow: 1; /* grow width automatically if needed */
+    min-width: 0; /* allow shrinking below default width */
   }
 
   /**
@@ -20,9 +29,13 @@ export const styles = css`
     ##Screen = B/w 768px to 1024px
    */
   @media (min-width: 768px) and (max-width: 1024px) {
-    main {
+    .main-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .main-container:first-child {
+      width: 100%;
     }
   }
 
@@ -31,9 +44,13 @@ export const styles = css`
     ##Screen = B/w 768px to 1024px
   */
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    main {
+    .main-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .main-container:first-child {
+      width: 100%;
     }
   }
 
@@ -42,9 +59,13 @@ export const styles = css`
     ##Screen = B/w 768px to 1024px
   */
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    main {
+    .main-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .main-container:first-child {
+      width: 100%;
     }
   }
 
@@ -53,9 +74,13 @@ export const styles = css`
     ##Screen = B/w 481px to 767px
   */
   @media (min-width: 481px) and (max-width: 767px) {
-    main {
+    .main-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .main-container:first-child {
+      width: 100%;
     }
   }
 
@@ -64,9 +89,13 @@ export const styles = css`
     ##Screen = B/w 320px to 479px
   */
   @media (max-width: 480px) {
-    main {
+    .main-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .main-container:first-child {
+      width: 100%;
     }
   }
 `;

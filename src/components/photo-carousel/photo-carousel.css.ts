@@ -38,6 +38,7 @@ export const styles = css`
   .photo-container {
     width: 100%;
     height: 400px;
+    cursor: default;
   }
 
   .buttons {
@@ -55,6 +56,7 @@ export const styles = css`
     flex: 1 1 0;
     padding-inline-start: 1.5rem;
     font-size: 0.6rem;
+    cursor: default;
   }
 
   slot[name="name"] {
@@ -63,10 +65,10 @@ export const styles = css`
     padding-inline-end: 1.5rem;
     margin-inline-end: 1.5rem;
     border-right: 1px solid black;
-    /* box-sizing: border-box; */
     height: 100%;
     align-items: center;
     font-size: 0.7rem;
     text-transform: uppercase;
+    cursor: default;
   }
 `;

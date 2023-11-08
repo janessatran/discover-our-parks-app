@@ -49,9 +49,9 @@ export const styles = css`
   .image-nav-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex: 0 1;
     gap: 2rem;
+    margin-block: 2rem;
   }
 
   .primary-nav-section {
@@ -61,8 +61,10 @@ export const styles = css`
   }
 
   .primary-nav-section > img {
-    object-fit: contain;
     width: 100%;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
   }
 
   .secondary-nav-section {
@@ -73,7 +75,9 @@ export const styles = css`
 
   .secondary-nav-section > img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    width: 230px;
+    height: 230px;
   }
 
   a {

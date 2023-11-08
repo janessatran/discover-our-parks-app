@@ -1,6 +1,7 @@
 import { html, TemplateResult, customElement, property } from "lit-element";
 import { MobxLitElement } from "@adobe/lit-mobx";
 import { styles } from "./info-card.css";
+import "../pill-button/pill-button";
 
 @customElement("info-card")
 export class InfoCard extends MobxLitElement {
@@ -12,13 +13,22 @@ export class InfoCard extends MobxLitElement {
         <slot name="photo-carousel-container"></slot>
       </div>
       <div class="content-container">
-        <p>Welcome to Your Ultimate National Park Adventure Hub!</p>
+        <p class="text-content">
+          Welcome to Your Ultimate National Park Adventure Hub!
+        </p>
 
-        <p>
+        <p class="text-content">
           From the rugged Rockies to the serene shores, we've got the lowdown on
           all your favorite national parks. Dive in, find your next adventure,
           and let's make some memories!
         </p>
+
+        <div class="nav-container">
+          <pill-button
+            label="Explore the map"
+            clickUrl="/parks-map"
+          ></pill-button>
+        </div>
       </div>
     `;
   }
