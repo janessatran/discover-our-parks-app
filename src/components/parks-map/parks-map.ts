@@ -1,4 +1,6 @@
-import { html, TemplateResult, customElement, property } from "lit-element";
+import { html, TemplateResult } from "lit";
+
+import { customElement } from "lit/decorators.js";
 import { MobxLitElement } from "@adobe/lit-mobx";
 
 import "../about-section/about-section";
