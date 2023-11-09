@@ -9,21 +9,21 @@ import "../pill-button/pill-button";
 export class InfoCard extends MobxLitElement {
   static styles = styles;
 
+  @property()
+  initialTextContent: string | undefined;
+
+  @property()
+  secondaryTextContent: string | undefined;
+
   public render(): TemplateResult {
     return html`
       <div class="image-container">
         <slot name="photo-carousel-container"></slot>
       </div>
       <div class="content-container">
-        <p class="text-content">
-          Welcome to Your Ultimate National Park Adventure Hub!
-        </p>
+        <p class="text-content">${this.initialTextContent}</p>
 
-        <p class="text-content">
-          From the rugged Rockies to the serene shores, we've got the lowdown on
-          all your favorite national parks. Dive in, find your next adventure,
-          and let's make some memories!
-        </p>
+        <p class="text-content">${this.secondaryTextContent}</p>
 
         <div class="nav-container">
           <pill-button label="Explore the map" route="/parks-map"></pill-button>

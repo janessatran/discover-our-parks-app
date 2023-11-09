@@ -49,7 +49,7 @@ export class ParksMap extends MobxLitElement {
         <info-card>
           <photo-carousel slot="photo-carousel-container"> </photo-carousel>
         </info-card>
-        <about-section></about-section>
+        <about-section title="Explore the map"></about-section>
       </div>
     `;
   }
