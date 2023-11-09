@@ -1,7 +1,8 @@
-import { html, TemplateResult, customElement, property } from "lit-element";
+import { html, TemplateResult } from "lit";
 import { MobxLitElement } from "@adobe/lit-mobx";
 
 import { CounterStore } from "../stores/CounterStore";
+import { customElement } from "lit/decorators.js";
 
 // create a new custom element, and use the base MobxLitElement class
 // alternatively you can use the MobxReactionUpdate mixin, e.g. `class MyElement extends MobxReactionUpdate(LitElement)`

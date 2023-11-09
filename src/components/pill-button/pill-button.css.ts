@@ -23,4 +23,8 @@ export const styles = css`
     box-sizing: border-box;
     margin-block: -4px 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

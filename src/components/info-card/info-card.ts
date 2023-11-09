@@ -26,10 +26,7 @@ export class InfoCard extends MobxLitElement {
         </p>
 
         <div class="nav-container">
-          <pill-button
-            label="Explore the map"
-            clickUrl="/parks-map"
-          ></pill-button>
+          <pill-button label="Explore the map" route="/parks-map"></pill-button>
         </div>
       </div>
     `;
