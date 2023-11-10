@@ -7,6 +7,7 @@ export const styles = css`
     display: block;
     margin: 0;
     position: relative;
+    width: 100%;
   }
 
   .main-container {

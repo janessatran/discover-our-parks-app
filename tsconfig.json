@@ -7,7 +7,7 @@
     "noEmitOnError": true,
     "lib": ["esnext.array", "esnext", "es2017", "dom"],
     "strict": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -18,5 +18,5 @@
     "incremental": true,
     "useDefineForClassFields": false
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "src/components/parks-map/geo-map.js"]
 }

@@ -6,9 +6,11 @@ export const styles = css`
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
   }
 
   .image-container {
+    width: 100%;
   }
 
   .image-container > img {

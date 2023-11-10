@@ -13,7 +13,7 @@ export class AboutSection extends MobxLitElement {
   title = "Discover Our Parks";
 
   @property({ type: Object })
-  contentTemplate: TemplateResult | undefined;
+  contentTemplate: any | undefined;
 
   public render(): TemplateResult {
     return html`

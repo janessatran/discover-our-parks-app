@@ -15,6 +15,10 @@ export const styles = css`
     min-height: 100vh;
   }
 
+  #outlet {
+    width: 100%;
+  }
+
   /** Transition Effect */
   .right-layer {
     position: absolute;

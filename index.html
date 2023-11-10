@@ -16,6 +16,12 @@
       rel="stylesheet"
     />
 
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
     <style>
       html,
       body {
@@ -40,10 +46,45 @@
 
   <body>
     <discover-our-parks-app></discover-our-parks-app>
+    <div id="map" style="display: hidden; width: 0; height: 0"></div>
 
     <script
       type="module"
       src="./out-tsc/src/discover-our-parks-app.js"
     ></script>
+
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiamFuZXNzYXRyYW4iLCJhIjoiY2xvYTVycjF4MGcxNTJrbW40b2N2c2xhdyJ9.QJVQiLIxywTBeSQoUHdwlg";
+      mapboxgl.setRTLTextPlugin(
+        "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js"
+      );
+
+      const map = new mapboxgl.Map({
+        container: "map", // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: "mapbox://styles/mapbox/streets-v12",
+        center: [12.550343, 55.665957],
+        zoom: 4, // starting zoom,
+      });
+
+      map.on("load", () => {
+        map.setLayoutProperty("country-label", "text-field", [
+          "format",
+          ["get", "name_en"],
+          { "font-scale": 1.2 },
+          "\n",
+          {},
+          ["get", "name"],
+          {
+            "font-scale": 0.8,
+            "text-font": [
+              "literal",
+              ["DIN Offc Pro Italic", "Arial Unicode MS Regular"],
+            ],
+          },
+        ]);
+      });
+    </script>
   </body>
 </html>
