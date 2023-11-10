@@ -28,15 +28,7 @@ export class ParksMap extends MobxLitElement {
 
     const map = document.body.querySelector("#map") as HTMLElement;
     map.style.display = "intiial";
-    map.style.width = "100%";
-    map.style.height = "100%";
-    // map.addEventListener("load", this.resizeMap);
   }
-
-  resizeMap = (event: Event) => {
-    const map = event.currentTarget as unknown as Map;
-    map.resize();
-  };
 
   disconnectedCallback() {
     super.disconnectedCallback();
