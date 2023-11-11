@@ -22,25 +22,7 @@
     />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #ededed;
-        height: 100%;
-      }
-
-      body {
-        transition: opacity 2000ms;
-        opacity: 1;
-      }
-
-      body.fadeout {
-        opacity: 0;
-      }
-    </style>
+    <link href="./styles.css" rel="stylesheet" />
     <title>discover-our-parks-app</title>
   </head>
 
@@ -53,42 +35,6 @@
       src="./out-tsc/src/discover-our-parks-app.js"
     ></script>
 
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiamFuZXNzYXRyYW4iLCJhIjoiY2xvYTVycjF4MGcxNTJrbW40b2N2c2xhdyJ9.QJVQiLIxywTBeSQoUHdwlg";
-      mapboxgl.setRTLTextPlugin(
-        "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js"
-      );
-
-      const map = new mapboxgl.Map({
-        container: "map", // container ID
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: "mapbox://styles/mapbox/streets-v12",
-        center: [12.550343, 55.665957],
-        zoom: 4, // starting zoom,
-      });
-
-      map.on("load", () => {
-        map.setLayoutProperty("country-label", "text-field", [
-          "format",
-          ["get", "name_en"],
-          { "font-scale": 1.2 },
-          "\n",
-          {},
-          ["get", "name"],
-          {
-            "font-scale": 0.8,
-            "text-font": [
-              "literal",
-              ["DIN Offc Pro Italic", "Arial Unicode MS Regular"],
-            ],
-          },
-        ]);
-      });
-
-      map.on("load", function () {
-        map.resize();
-      });
-    </script>
+    <script src="./map.js"></script>
   </body>
 </html>

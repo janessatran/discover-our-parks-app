@@ -1,0 +1,48 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #ededed;
+  height: 100%;
+}
+
+body {
+  transition: opacity 2000ms;
+  opacity: 1;
+}
+
+body.fadeout {
+  opacity: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #ededed;
+  height: 100%;
+}
+
+body {
+  transition: opacity 2000ms;
+  opacity: 1;
+}
+
+body.fadeout {
+  opacity: 0;
+}
+
+#marker {
+  background-image: url("https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
