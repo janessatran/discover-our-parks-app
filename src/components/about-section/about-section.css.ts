@@ -78,6 +78,12 @@ export const styles = css`
     width: 100%;
   }
 
+  .mapboxgl-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+  }
+
   /* 
   #map {
     width: 100%;
@@ -85,10 +91,7 @@ export const styles = css`
     display: block;
   }
 
-  .mapboxgl-canvas {
-    width: 100%;
-    overflow: hidden;
-  }
+  
 
   .mapboxgl-popup {
     max-width: 280px;

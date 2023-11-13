@@ -14,6 +14,7 @@ import * as mapboxgl from "mapbox-gl";
 import { styles } from "./parks-map.css";
 import { styles as mainLayoutStyles } from "../main-layout/main-layout.css";
 import { styles as aboutSectionStyles } from "../about-section/about-section.css";
+import { RequestInfo } from "undici-types";
 
 @customElement("parks-map")
 export class ParksMap extends MobxLitElement {
@@ -41,7 +42,6 @@ export class ParksMap extends MobxLitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.getMap();
 
     window.addEventListener(
       "changed-photo-event",
@@ -57,14 +57,52 @@ export class ParksMap extends MobxLitElement {
     );
   }
 
+  repeatUntilMapReady() {
+    if (!this.mapObj) {
+      console.log("repeating until map ready");
+      const mapEl = document.body.querySelector("#map") as HTMLElement;
+      if (mapEl) {
+        mapEl.style.display = "block";
+        mapEl.style.width = "100%";
+        mapEl.style.minHeight = "500px";
+        this.mapElement = mapEl;
+        this.getMap();
+        this.requestUpdate();
+      } else {
+        const mapWrapperEl = document.body.querySelector(
+          ".map-wrapper"
+        ) as HTMLElement;
+        const createdMap = document.createElement("div");
+        createdMap.id = "map";
+        createdMap.style.height = "400px";
+        createdMap.style.width = "100%";
+        mapWrapperEl.appendChild(createdMap);
+      }
+      setTimeout(() => {
+        this.repeatUntilMapReady();
+      }, 1000); // Adjust the delay as needed
+    }
+  }
+
+  repeatUntilImagesReady() {
+    if (!this.imagesForCarousel || !this.parks) {
+      console.log("repeating until images/data ready");
+
+      this.getData();
+      this.requestUpdate();
+    }
+
+    // Set a timeout to call the function again after a delay
+    setTimeout(() => {
+      this.repeatUntilImagesReady();
+    }, 1000); // Adjust the delay as needed
+  }
+
   getMap() {
     const map = setUpMap();
-    this.mapObj = map;
-    const mapEl = document.body.querySelector("#map") as HTMLElement;
-    mapEl.style.display = "block";
-    mapEl.style.width = "100%";
-    mapEl.style.minHeight = "500px";
-    this.mapElement = mapEl;
+    if (map) {
+      this.mapObj = map;
+    }
 
     return this.mapObj ? true : false;
   }
@@ -84,32 +122,42 @@ export class ParksMap extends MobxLitElement {
   }
 
   firstUpdated() {
-    if (this.mapObj) {
-      this.getData();
-    } else {
-      const mapReady = this.getMap();
-      if (mapReady) this.getData();
-    }
+    this.repeatUntilMapReady();
+    if (this.mapElement) this.repeatUntilImagesReady();
   }
 
   async getData() {
     await this.fetchParks();
     this.imagesForCarousel = this.getImages();
+  }
 
-    console.log(this.imagesForCarousel);
+  async fetchWithTimeout(resource: RequestInfo, options?: any) {
+    const timeout = options?.timeout ?? 8000;
+
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+
+    const response = await fetch(resource, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(id);
+
+    return response;
   }
 
   async fetchParks() {
     const map = this.mapObj;
     let parksData;
 
-    const response = await fetch(
+    const response = await this.fetchWithTimeout(
       "https://developer.nps.gov/api/v1/parks?limit=100000",
       {
         method: "GET",
         headers: {
           "X-Api-Key": "Y8Idz9Ba8lWUazAqUHNfxwE1RR97i3TSuoYiBsL7",
         },
+        timeout: 4000,
       }
     );
 

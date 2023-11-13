@@ -3,7 +3,6 @@
  */
 
 // TOOD: should this not be exposed globally? Makes it easier to debug.
-map;
 
 function setUpMap() {
   const style = "mapbox://styles/mapbox/outdoors-v12";
@@ -11,7 +10,7 @@ function setUpMap() {
   mapboxgl.accessToken =
     "pk.eyJ1IjoiamFuZXNzYXRyYW4iLCJhIjoiY2xvYTVycjF4MGcxNTJrbW40b2N2c2xhdyJ9.QJVQiLIxywTBeSQoUHdwlg";
 
-  window.map = new mapboxgl.Map({
+  const map = new mapboxgl.Map({
     container: "map",
     center: [-98, 40],
     zoom: 2,

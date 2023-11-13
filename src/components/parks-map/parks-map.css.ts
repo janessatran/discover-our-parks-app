@@ -16,4 +16,10 @@ export const styles = css`
     width: 100%;
     background-color: var(--bg-color);
   }
+
+  .mapboxgl-canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 `;

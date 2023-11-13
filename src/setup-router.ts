@@ -9,7 +9,11 @@ const configureRouter = (outletEl: Element) => {
 
   router.setRoutes([
     { path: "/", component: "main-layout" },
-    { path: "/parks-map", component: "parks-map" },
+    {
+      path: "/parks-map",
+      component: "parks-map",
+      animate: true,
+    },
     { path: "(.*)", redirect: "/" },
   ]);
 };
