@@ -20,21 +20,24 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
     <link href="./styles.css" rel="stylesheet" />
     <title>discover-our-parks-app</title>
   </head>
 
   <body>
+    <div class="map-wrapper" style="display: none">
+      <div id="map" style="height: 400px; width: 500px"></div>
+    </div>
+
     <discover-our-parks-app></discover-our-parks-app>
-    <div id="map" style="display: hidden; width: 0; height: 0"></div>
 
     <script
       type="module"
       src="./out-tsc/src/discover-our-parks-app.js"
     ></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
-    <script src="./map.js"></script>
+    <script type="module" src="./map.js"></script>
   </body>
 </html>

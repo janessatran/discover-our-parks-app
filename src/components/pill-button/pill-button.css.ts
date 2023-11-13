@@ -2,6 +2,7 @@ import { css } from "lit";
 
 export const styles = css`
   .pill-button {
+    background-color: transparent;
     height: 2.2rem;
     width: max-content;
     border-radius: 30px;
@@ -14,7 +15,7 @@ export const styles = css`
   }
 
   .pill-button:hover {
-    background-color: orange;
+    background-color: #ffaab774;
   }
 
   span {

@@ -7,14 +7,17 @@
   "type": "module",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "postinstall": "bower install"
   },
   "dependencies": {
     "@adobe/lit-mobx": "^2.2.0",
     "@vaadin/router": "^1.7.5",
     "lit": "^2.0.2",
-    "mapbox-gl": "^2.15.0",
-    "mobx": "^6.10.2"
+    "mobx": "^6.10.2",
+    "@mapbox/mapbox-gl-geocoder": "^2.1.2",
+    "mapbox": "^1.0.0-beta9",
+    "mapbox-gl": "^0.42.0"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.4.17",

@@ -17,13 +17,16 @@ export class PhotoCarousel extends LitElement {
   selected = 0;
 
   @property()
-  name = "TODO";
+  name = "";
+
+  metadata = "";
 
   connectedCallback() {
     super.connectedCallback();
   }
 
   get maxSelected() {
+    console.log(this.childElementCount);
     return this.childElementCount - 1;
   }
 
@@ -63,6 +66,27 @@ export class PhotoCarousel extends LitElement {
     });
 
     this.dispatchEvent(change);
+    this.updateData(selected);
+  }
+
+  private updateData(selected: number) {
+    const name = this.children[selected].getAttribute("id");
+    if (name) {
+      this.name = name;
+    }
+    const code = this.children[selected].getAttribute("park-code");
+    if (code) {
+      this.metadata = code;
+    }
+
+    window.dispatchEvent(
+      new CustomEvent("changed-photo-event", {
+        detail: {
+          name: this.name,
+          metadata: this.metadata,
+        },
+      })
+    );
   }
 
   render() {
@@ -70,20 +94,21 @@ export class PhotoCarousel extends LitElement {
       this.selectedInternal = this.selected;
     }
 
+    const countText =
+      this.maxSelected > 0 ? `${this.selected} OF ${this.maxSelected}` : "...";
+
     return html`
       <div class="fit">
         <div class="photo-container">
           <slot name="selected"></slot>
         </div>
         <div class="menu-container">
-          <slot name="count"
-            >${this.selected + 1} OF ${this.maxSelected + 1}</slot
-          >
+          <slot name="count">${countText}</slot>
           <slot name="name">${this.name}</slot>
           <div class="buttons">
-            <div class="back-arrow" @click=${this.handleBackClick}>
+            <!-- <div class="back-arrow" @click=${this.handleBackClick}>
               <span>&#10229;</span>
-            </div>
+            </div> -->
             <div class="forward-arrow" @click=${this.handleForwardClick}>
               <span>&#10230;</span>
             </div>

@@ -2,7 +2,9 @@ import { css } from "lit";
 
 export const styles = css`
   :host {
-    --primary-bg-color: #fcfcf4;
+    --primary-bg-color: #1a2c14;
+    --bg-color: #fcfcf4;
+
     height: 100%;
     display: block;
     margin: 0;
@@ -17,7 +19,8 @@ export const styles = css`
   }
 
   .main-container > *:nth-child(1) {
-    flex: 0 0 60%;
+    flex: 0 0 50%;
+    border-inline-end: 1px solid black;
   }
 
   .main-container > *:nth-child(2) {

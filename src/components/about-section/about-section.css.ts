@@ -2,22 +2,21 @@ import { css } from "lit";
 
 export const styles = css`
   :host {
-    --primary-bg-color: #1a2c14;
-    --primary-text-color: #fcfcf4;
     --secondary-text-color: #ff0055;
     --hover-text-color: #00ffaf;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color, #fcfcf4);
     display: block;
     width: 100%;
     display: flex;
   }
 
   .content {
-    background-color: var(--primary-bg-color);
+    background-color: var(--primary-bg-color, #1a2c14);
     padding: 3rem;
     display: flex;
     flex-direction: column;
     flex: 1 1;
+    color: var(--primary-title-color, --primary-text-color);
   }
 
   .header {
@@ -29,7 +28,7 @@ export const styles = css`
   }
 
   hr.divider {
-    border: 0.66px solid var(--primary-text-color);
+    border: 0.66px solid var(--primary-text-color, #fcfcf4);
     width: 100%;
   }
 
@@ -38,13 +37,80 @@ export const styles = css`
     display: inherit;
   }
 
+  #map {
+    overflow: hidden;
+  }
+
+  #fly {
+    display: block;
+    position: relative;
+    margin: 0px auto;
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #ee8a65;
+  }
+
   .app-title-section {
     font-family: "Anonymous Pro", sans-serif;
-    font-size: 5rem;
+    font-size: var(--header-font-size, 5rem);
     text-transform: uppercase;
     letter-spacing: 3px;
     line-height: 0.8;
   }
+
+  a {
+    color: var(--primary-link-color, --primary-text-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--primary-link-hover-color, --hover-text-color);
+    font-weight: 800;
+  }
+
+  img.placeholder-img {
+    width: 100%;
+  }
+
+  /* 
+  #map {
+    width: 100%;
+    height: 500px;
+    display: block;
+  }
+
+  .mapboxgl-canvas {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mapboxgl-popup {
+    max-width: 280px;
+  }
+
+  .mapboxgl-popup-content {
+    background-color: white;
+    color: black;
+    padding: 2.2rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .mapboxgl-popup-close-button {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+  }
+
+  .mapboxgl-canvas-container {
+    height: 100%;
+  }
+*/
 
   /**
     ##Device = Low Resolution Tablets, Mobiles (Landscape)

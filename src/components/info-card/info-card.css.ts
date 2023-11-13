@@ -21,7 +21,7 @@ export const styles = css`
   .content-container {
     margin: 1rem;
     font-family: "Inter", sans-serif;
-    font-color: var(--primary-text-color-dark);
+    color: var(--primary-text-color-dark);
   }
 
   .nav-container {

@@ -25,6 +25,8 @@ export class MainLayout extends MobxLitElement {
       <info-card
         initialTextContent="Welcome to Your Ultimate National Park Adventure Hub!"
         secondaryTextContent="From the rugged Rockies to the serene shores, we've got the lowdown on all your favorite national parks. Dive in, find your next adventure,  and let's make some memories!"
+        .buttonLabel=${"Explore the map"}
+        .buttonRoute=${"/parks-map"}
       >
         <photo-carousel slot="photo-carousel-container">
           <img

@@ -6,7 +6,7 @@ export const styles = css`
     position: relative;
     /* Defaults */
     border-radius: 4px;
-    background: gainsboro;
+    background: var(--bg-color, gainsboro);
     cursor: pointer;
     width: 100%;
     font-family: "Inter", sans-serif;

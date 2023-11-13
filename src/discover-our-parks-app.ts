@@ -21,12 +21,6 @@ export class DiscoverOurParksApp extends LitElement {
     return html`
       <main>
         <div id="outlet"></div>
-        <div class="container">
-          <div class="right-layer"></div>
-          <div class="right-layer right-layer--2"></div>
-          <div class="right-layer right-layer--3"></div>
-          <div class="right-layer right-layer--4"></div>
-        </div>
       </main>
     `;
   }

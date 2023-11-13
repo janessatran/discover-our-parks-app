@@ -2,78 +2,89 @@
  * Mapbox Map Script
  */
 
+// TOOD: should this not be exposed globally? Makes it easier to debug.
+map;
+
 function setUpMap() {
+  const style = "mapbox://styles/mapbox/outdoors-v12";
+
   mapboxgl.accessToken =
     "pk.eyJ1IjoiamFuZXNzYXRyYW4iLCJhIjoiY2xvYTVycjF4MGcxNTJrbW40b2N2c2xhdyJ9.QJVQiLIxywTBeSQoUHdwlg";
-  mapboxgl.setRTLTextPlugin(
-    "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js"
-  );
 
-  const map = new mapboxgl.Map({
-    container: "map", // container ID
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: "mapbox://styles/mapbox/streets-v12",
+  window.map = new mapboxgl.Map({
+    container: "map",
     center: [-98, 40],
-    zoom: 3, // starting zoom,
+    zoom: 2,
+    style: style,
     attributionControl: false,
   });
 
+  map.resize();
+
   map.on("load", () => {
     map.resize();
-    map.style.display = "initial";
-    // map.setLayoutProperty("country-label", "text-field", [
-    //   "format",
-    //   ["get", "name_en"],
-    //   { "font-scale": 1.2 },
-    //   "\n",
-    //   {},
-    //   ["get", "name"],
-    //   {
-    //     "font-scale": 0.8,
-    //     "text-font": [
-    //       "literal",
-    //       ["DIN Offc Pro Italic", "Arial Unicode MS Regular"],
-    //     ],
-    //   },
-    // ]);
+
+    // Custom atmosphere styling
+    map.setFog({
+      color: "rgb(242, 208, 208)", // Pink fog / lower atmosphere
+      "high-color": "rgb(186, 221, 222)", // Blue sky / upper atmosphere
+      "horizon-blend": 0.4, // Exaggerate atmosphere (default is .1)
+    });
+
+    map.addSource("mapbox-dem", {
+      type: "raster-dem",
+      url: "mapbox://mapbox.terrain-rgb",
+    });
+
+    map.setTerrain({
+      source: "mapbox-dem",
+      exaggeration: 1.5,
+    });
   });
-  map.style.width = "500px";
 
   return map;
 }
 
-let parksData;
-async function fetchParks(map) {
-  const response = await fetch(
-    "https://developer.nps.gov/api/v1/parks?limit=100000",
-    {
-      method: "GET",
-      headers: {
-        "X-Api-Key": "Y8Idz9Ba8lWUazAqUHNfxwE1RR97i3TSuoYiBsL7",
-      },
-    }
-  );
-
-  const jsonResponse = await response.json();
-  parksData = jsonResponse.data;
-  console.log(parksData);
-  parksData.forEach((park) => {
-    // create the popup
-    const popup = new mapboxgl.Popup({ offset: 25 }).setText(park.fullName);
-
-    // create DOM element for the marker
-    const el = document.createElement("div");
-    el.id = "marker";
-
-    // create the marker
-    const marker = new mapboxgl.Marker(el)
-      .setLngLat([park.longitude, park.latitude])
-      .setPopup(popup) // sets a popup on this marker
-      .addTo(map);
-
-    console.log(marker);
-  });
+// TODO: This doesn't add the marker to the correct place at the moment.
+function addPopupToMap(map, parkData) {
+  // const popup = new mapboxgl.Popup({ offset: 1 }).setText(
+  //   parkData.fullName + parkData.latitude + parkData.longitude
+  // );
+  new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat([parkData.longitude, parkData.latitude])
+    .setHTML(`<h3>${parkData.fullName}</h3><p>${parkData.state}</p>`)
+    .addTo(map);
+  // create DOM element for the marker
+  // const el = document.createElement("div");
+  // el.className = "park-marker";
+  // el.id = parkData.parkCode + "-marker";
+  // create the marker
+  // new mapboxgl.Marker(el)
+  //   .setLngLat([parkData.longitude, parkData.latitude])
+  //   .setPopup(popup) // sets a popup on this marker
+  //   .addTo(map);
 }
 
-const map = setUpMap();
-fetchParks(map);
+function flyTo(map, park) {
+  const end = {
+    center: [park.longitude, park.latitude],
+    zoom: 12.5,
+    bearing: 130,
+    pitch: 100,
+  };
+
+  map.flyTo({
+    ...end, // Fly to the selected target
+    duration: 500, // Animate over 12 seconds
+    essential: true, // This animation is considered essential with
+    //respect to prefers-reduced-motion
+  });
+
+  // TODO: is flying with the pitch annoying?
+  // map.flyTo({
+  //   center: [park.longitude, park.latitude],
+  //   essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+  // });
+}
+
+export { setUpMap, addPopupToMap, flyTo };
