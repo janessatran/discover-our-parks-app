@@ -1,0 +1,31 @@
+import { CSSResult, TemplateResult } from "lit";
+import { MobxLitElement } from "@adobe/lit-mobx";
+import "../about-section/about-section";
+import "../info-card/info-card";
+import "../photo-carousel/photo-carousel";
+import "../parks-map/parks-map";
+import * as mapboxgl from "mapbox-gl";
+import { RequestInfo } from "undici-types";
+export declare class ParksMap extends MobxLitElement {
+    static styles: CSSResult[];
+    parks: never[];
+    mapElement: HTMLElement | undefined;
+    mapObj: mapboxgl.Map | undefined;
+    ready: boolean;
+    parkCodeToDataMap: Map<any, any>;
+    parkDescription: string;
+    parkUrl: string;
+    imagesForCarousel: (TemplateResult<1> | undefined)[] | undefined;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    repeatUntilMapReady(): void;
+    repeatUntilImagesReady(): void;
+    getMap(): boolean;
+    handleChangePhotoEvent(e: Event): void;
+    firstUpdated(): void;
+    getData(): Promise<void>;
+    fetchWithTimeout(resource: RequestInfo, options?: any): Promise<Response>;
+    fetchParks(): Promise<void>;
+    getImages(): (TemplateResult<1> | undefined)[];
+    render(): TemplateResult;
+}

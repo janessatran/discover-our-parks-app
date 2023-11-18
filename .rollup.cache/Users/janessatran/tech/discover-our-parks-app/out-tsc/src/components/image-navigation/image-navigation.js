@@ -1,0 +1,37 @@
+import { __decorate } from "tslib";
+import { html } from "lit";
+import { customElement } from "lit/decorators.js";
+import { MobxLitElement } from "@adobe/lit-mobx";
+import { styles } from "./image-navigation.css";
+let ImageNavigation = class ImageNavigation extends MobxLitElement {
+    render() {
+        return html `
+      <div class="image-nav-container">
+        <div class="primary-nav-section">
+          <div class="link">
+            <a href="#">first visit checklist</a>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1576176539998-0237d1ac6a85?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+        </div>
+        <div class="secondary-nav-section">
+          <div class="link">
+            <a href="https://www.nps.gov/aboutus/index.htm" target="_blank"
+              >Learn more about n.p.s.</a
+            >
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+        </div>
+      </div>
+    `;
+    }
+};
+ImageNavigation.styles = styles;
+ImageNavigation = __decorate([
+    customElement("image-navigation")
+], ImageNavigation);
+export { ImageNavigation };
+//# sourceMappingURL=image-navigation.js.map

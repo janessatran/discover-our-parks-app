@@ -1,8 +1,8 @@
 {
   "name": "discover-our-parks-app",
-  "description": "Webcomponent discover-our-parks-app following open-wc recommendations",
+  "description": "An app that helps you learn more about National Parks in the U.S. that you may not know about!",
   "license": "MIT",
-  "author": "discover-our-parks-app",
+  "author": "Janessa Tran",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -36,5 +36,7 @@
     "tslib": "^2.3.1",
     "typescript": "^5.4.0"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "main": "index.html",
+  "repository": "https://github.com/janessatran/discover-our-parks-app.git"
 }
