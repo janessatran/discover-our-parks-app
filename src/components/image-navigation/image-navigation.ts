@@ -21,7 +21,9 @@ export class ImageNavigation extends MobxLitElement {
         </div>
         <div class="secondary-nav-section">
           <div class="link">
-            <a href="#">Learn more about n.p.s.</a>
+            <a href="https://www.nps.gov/aboutus/index.htm" target="_blank"
+              >Learn more about n.p.s.</a
+            >
           </div>
           <img
             src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

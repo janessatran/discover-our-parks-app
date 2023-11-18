@@ -18,7 +18,7 @@ export class PillButton extends MobxLitElement {
   public render(): TemplateResult {
     return html`
       <a href=${ifDefined(this.route)}>
-        <button class="pill-button" id="right">
+        <button class="pill-button" type="button">
           ${this.label}<span>&#10230;</span>
         </button>
       </a>
