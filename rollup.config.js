@@ -8,7 +8,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 const baseConfig = createSpaConfig({
   // use the outputdir option to modify where files are output
-  outputDir: "dist",
+  outputDir: "build",
 
   // if you need to support older browsers, such as IE11, set the legacyBuild
   // option to generate an additional build just for this browser
