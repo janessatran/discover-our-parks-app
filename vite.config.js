@@ -3,7 +3,7 @@ const isCodeSandbox =
   "SANDBOX_URL" in process.env || "CODESANDBOX_HOST" in process.env;
 
 export default defineConfig({
-  root: "src/",
+  root: "./",
   publicDir: "../static/",
   base: "/discover-our-parks-app/",
   server: {
