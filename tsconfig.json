@@ -18,5 +18,5 @@
     "incremental": true,
     "useDefineForClassFields": false
   },
-  "include": ["**/*.ts", "src/components/parks-map/geo-map.js"]
+  "include": ["**/*.ts", "src/components/**/*", "**/*.css"]
 }

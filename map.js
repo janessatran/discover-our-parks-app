@@ -44,7 +44,6 @@ function setUpMap() {
   return map;
 }
 
-// TODO: This doesn't add the marker to the correct place at the moment.
 function addPopupToMap(map, parkData) {
   // const popup = new mapboxgl.Popup({ offset: 1 }).setText(
   //   parkData.fullName + parkData.latitude + parkData.longitude
