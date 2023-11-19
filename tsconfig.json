@@ -5,6 +5,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
+    "emitDeclarationOnly": false,
     "lib": ["esnext.array", "esnext", "es2017", "dom"],
     "strict": true,
     "esModuleInterop": true,
