@@ -5,7 +5,7 @@ const isCodeSandbox =
 export default defineConfig({
   root: "./",
   publicDir: "../static/",
-  base: "/discover-our-parks-app",
+  base: "/discover-our-parks-app/",
   server: {
     host: true,
     open: !isCodeSandbox, // Open if it's not a CodeSandbox

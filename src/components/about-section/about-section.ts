@@ -20,7 +20,7 @@ export class AboutSection extends MobxLitElement {
       <div class="content">
         <div class="header">
           <div class="title">
-            <a href="/discover-our-parks-app">U.S. National Parks Discovery</a>
+            <a href="/discover-our-parks-app/">U.S. National Parks Discovery</a>
           </div>
           <div class="author">By Janessa</div>
         </div>

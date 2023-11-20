@@ -8,13 +8,13 @@ const configureRouter = (outletEl: Element) => {
   router = new Router(outlet);
 
   router.setRoutes([
-    { path: "/discover-our-parks-app", component: "main-layout" },
+    { path: "/discover-our-parks-app/", component: "main-layout" },
     {
       path: "/discover-our-parks-app/parks-map",
       component: "parks-map",
       animate: true,
     },
-    { path: "(.*)", redirect: "/discover-our-parks-app" },
+    { path: "(.*)", redirect: "/discover-our-parks-app/" },
   ]);
 };
 
