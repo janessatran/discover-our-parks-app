@@ -4,7 +4,9 @@
 
 ## Discover Our Parks
 
-An application built to help people learn and explore the wonderful national parks in the U.S.
+An application built to help people learn and explore the wonderful national parks in the United States!!
+
+(... but mostly to help me learn more about web components and such :~) )
 
 Built with:
 
