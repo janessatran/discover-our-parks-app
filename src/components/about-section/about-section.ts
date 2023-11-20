@@ -19,7 +19,9 @@ export class AboutSection extends MobxLitElement {
     return html`
       <div class="content">
         <div class="header">
-          <div class="title"><a href="/">U.S. National Parks Discovery</a></div>
+          <div class="title">
+            <a href="/discover-our-parks-app">U.S. National Parks Discovery</a>
+          </div>
           <div class="author">By Janessa</div>
         </div>
         <hr class="divider" />

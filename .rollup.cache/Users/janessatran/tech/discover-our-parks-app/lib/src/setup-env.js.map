@@ -1,1 +1,0 @@
-{"version":3,"file":"setup-env.js","sourceRoot":"","sources":["../../src/setup-env.js"],"names":[],"mappings":";AAAA,UAAU,CAAC,OAAO,GAAG;IACnB,GAAG,UAAU,CAAC,OAAO;IACrB,GAAG,EAAE,EAAE,QAAQ,EAAE,aAAa,EAAE;CACjC,CAAC","sourcesContent":["globalThis.process = {\n  ...globalThis.process,\n  env: { NODE_ENV: \"development\" },\n};\n"]}

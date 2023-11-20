@@ -26,7 +26,7 @@ export class MainLayout extends MobxLitElement {
         initialTextContent="Welcome to Your Ultimate National Park Adventure Hub!"
         secondaryTextContent="From the rugged Rockies to the serene shores, we've got the lowdown on all your favorite national parks. Dive in, find your next adventure,  and let's make some memories!"
         .buttonLabel=${"Explore the map"}
-        .buttonRoute=${"/parks-map"}
+        .buttonRoute=${"/discover-our-parks-app/parks-map"}
       >
         <photo-carousel slot="photo-carousel-container">
           <img
