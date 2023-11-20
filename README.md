@@ -1,8 +1,8 @@
 <p align="center">
-  <img width="200" src="https://imgur.com/5Q3VYpJ.png"></img>
+  <img width="400" src="https://imgur.com/5Q3VYpJ.png"></img>
 </p>
 
-## Discover Our Parks App
+## Discover Our Parks
 
 An application built to help people learn and explore the wonderful national parks in the U.S.
 
