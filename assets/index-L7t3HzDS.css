@@ -1,0 +1,1 @@
+html,body{margin:0;padding:0;font-family:sans-serif;background-color:#ededed;height:100%}html,body{margin:0;padding:0;font-family:sans-serif;background-color:var(--bg-color, #fcfcf4);height:100%}body{transition:opacity 2s;opacity:1}body.fadeout{opacity:0}.park-marker{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.61)}
