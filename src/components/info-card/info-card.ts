@@ -1,6 +1,7 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { when } from "lit/directives/when.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 import { MobxLitElement } from "@adobe/lit-mobx";
 import { styles } from "./info-card.css";
@@ -22,6 +23,9 @@ export class InfoCard extends MobxLitElement {
   @property()
   buttonRoute: string | undefined;
 
+  @property({ type: Boolean })
+  openRouteInNewTab = false;
+
   public render(): TemplateResult {
     return html`
       <div class="image-container">
@@ -37,7 +41,8 @@ export class InfoCard extends MobxLitElement {
           () => html`<div class="nav-container">
             <pill-button
               label=${this.buttonLabel}
-              route=${this.buttonRoute}
+              route=${ifDefined(this.buttonRoute)}
+              .openInNewTab=${this.openRouteInNewTab}
             ></pill-button>
           </div>`
         )}

@@ -213,6 +213,7 @@ export class ParksMap extends MobxLitElement {
             : placeholderText}
           .buttonLabel=${"Learn more"}
           .buttonRoute=${this.parkUrl}
+          .openRouteInNewTab=${true}
         >
           <photo-carousel
             slot="photo-carousel-container"

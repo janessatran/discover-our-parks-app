@@ -15,9 +15,15 @@ export class PillButton extends MobxLitElement {
   @property()
   private route: string | undefined;
 
+  @property({ type: Boolean })
+  private openInNewTab = false;
+
   public render(): TemplateResult {
     return html`
-      <a href=${ifDefined(this.route)}>
+      <a
+        href=${ifDefined(this.route)}
+        target=${ifDefined(this.openInNewTab === true ? "_blank" : "")}
+      >
         <button class="pill-button" type="button">
           ${this.label}<span>&#10230;</span>
         </button>
